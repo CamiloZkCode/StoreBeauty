@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/Frontend/Public/favicon.png"
+      type="image/x-icon"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&family=Syne:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/Frontend/Styles/Contact.css" />
+    <title>Mayra Beauty Studio</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="nav-bar">
+        <div class="logo">
+          <a href="/Frontend/Public/Index.html"> Mayra beauty Studio</a>
+        </div>
+        <div class="header-mobile">
+          <button class="open-menu" id="open-menu">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/Frontend/Public/Index.html">INICIO</a></li>
+          <li><a href="/Frontend/Pages/Services.html">SERVICIOS</a></li>
+          <li><a href="/Frontend/Pages/Contact.html">CONTACTO</a></li>
+          <li><a href="/Frontend/Pages/Store.html">TIENDA</a></li>
+        </ul>
+      </nav>
+
+      <!--Seccion de Menu movil-->
+      <section class="mobile-menu" id="mobile-menu">
+        <button class="close-menu" id="close-menu">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <ul class="mobile-links">
+          <li><a href="/Frontend/Public/Index.html">INICIO</a></li>
+          <li><a href="/Frontend/Pages/Services.html">SERVICIOS</a></li>
+          <li><a href="/Frontend/Pages/Contact.html">CONTACTO</a></li>
+          <li><a href="/Frontend/Pages/Store.html">TIENDA</a></li>
+        </ul>
+      </section>
+    </header>
+
+    <main>
+    <section class="section-contact">
+      <div class="container-contact" >
+        <div class="text-contact" >
+          <h2 class="title-contact">Contacta Mayra Beauty Studio</h2>
+          <pre
+            class="info-contact"
+          >Si tienes preguntas, necesitas asesoría <br> o quieres reservar una cita,<br> no dudes en contactarnos a través de <br> nuestros canales de atención:
+
+📍Correo:Mayrabeautystudio@makeup.com <br>📍Celular:3228107910 <br>📍Dirección :Calle 4#2-42 La Gaviota 
+        </pre>
+        </div>
+
+        <div class="form-contact">
+          <form action="" class="contact" id="contact" method="POST">
+            <label class="label" for="name">Nombre</label>
+            <input class="input" type="text" name="name" id="name" required />
+
+            <label class="label" for="email">Correo Electrónico</label>
+            <input
+              class="input"
+              type="email"
+              name="email"
+              id="email"
+              required
+            />
+
+            <label class="label" for="tel">Teléfono</label>
+            <input class="input" type="number" name="tel" id="tel" required />
+
+            <label class="label" for="textarea">Déjanos saber tus dudas</label>
+            <textarea
+              name="textarea"
+              id="textarea"
+              placeholder="Escribe tus dudas y nos comunicaremos contigo"
+            ></textarea>
+
+            <button type="submit" class="cssbuttons-io-button" method="POST">
+              <p>ENVIAR</p>
+              <div class="icon">
+                <svg
+                  height="24"
+                  width="24"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/Frontend/Scripts/boton-menu.js"></script>
+    <script src="/Frontend/Scripts/Submit.js"></script>
+    <script src="/Frontend/Scripts/Navbar-Linea.js"></script>
+
+    <script>
+      AOS.init({
+     once: false,
+   });
+   </script>
+
+
+  </body>
+</html>

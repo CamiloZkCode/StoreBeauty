@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="/Frontend/Public/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&family=Syne:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/Frontend/Styles/Pasarela.css" />
+    <title>Mayra Beauty Studio</title>
+  </head>
+
+  <body>
+    <div class="contenedor">
+      <form action="">
+        <div class="filas">
+          <div class="columnas">
+            <h3 class="titulo">Datos de Envio</h3>
+            <div class="inputs-box">
+              <label for="Email">Email:</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="MayraBeautyStudio@gmail.com"
+                required
+              />
+            </div>
+
+            <div class="inputs-box">
+              <label for="Telefono">Celular:</label>
+              <input
+                type="tel"
+                name="Telefono"
+                id="Telefono"
+                placeholder="3228107910"
+                required
+              />
+            </div>
+
+            <div class="flex">
+              <div class="inputs-box">
+                <label for="direccion">Direccion:</label>
+                <input
+                  type="text"
+                  name="direccion"
+                  id="direccion"
+                  placeholder="Calle 4 #2-51"
+                  required
+                />
+              </div>
+
+              <div class="inputs-box">
+                <label for="Ciudad">Barrio/Ciudad:</label>
+                <input
+                  type="text"
+                  name="Ciudad"
+                  id="Ciudad"
+                  placeholder="Ibague"
+                  required
+                />
+              </div>
+            </div>
+
+        <div class="flex">
+            <div class="inputs-box">
+                <label for="Pais">Pais:</label>
+                <input type="text" name="Pais" id="Pais" placeholder="Colombia" required />
+            </div>
+
+            <div class="inputs-box">
+                <label for="codigo-postal">Codigo Postal:</label>
+                <input type="number" name="codigo-postal" id="codigo-postal" placeholder="7300003" required
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="columnas">
+        <h3 class="titulo">Pago</h3>
+
+            <div class="inputs-box">
+                <label for="Email">Nombre del Titular:</label>
+                <input type="email" name="email" id="email" placeholder="Ieremy Cabrera" required />
+            </div>
+
+            <div class="inputs-box">
+                <label for="Numero-Tarjeta">Numero Tarjeta:</label>
+                <input type="text" name="Numero-Tarjeta" id="Numero-Tarjeta" maxlength="19" placeholder="0000 1111 2222 3333" required/>
+            </div>
+
+        <div class="flex">
+            <div class="inputs-box">
+                <label for="Expiracion">Expiracion:</label>
+                <input type="text" name="Expiracion" id="Expiracion" placeholder="11/27" required maxlength="5"/>
+            </div>
+
+            <div class="inputs-box">
+                <label for="CVV">CVV:</label>
+                <input type="number" name="CVV" id="CVV" placeholder="111" required />
+            </div>
+        </div>
+
+        <div class="flex">
+            <div class="inputs-box">
+                <label for="Tarjeta">Tarjetas Aceptadas:</labe>
+                <img src="/Frontend/Assets/Images/imgcards.png" alt="Tarjetas" />
+            </div>
+        </div>
+
+        </div>
+    </div>
+            <button class="btn-pagar" type="submit">Pagar</button>
+      </form>
+    </div>
+
+    <script src="/Frontend/Scripts/Credito.js"></script>
+  </body>
+</html>
