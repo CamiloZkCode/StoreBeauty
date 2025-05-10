@@ -282,6 +282,7 @@ main {
 }
 
 .cart-delete-product {
+  font-size: 1.2rem;
   border: 0;
   background-color: transparent;
   color: rgb(146, 24, 24);

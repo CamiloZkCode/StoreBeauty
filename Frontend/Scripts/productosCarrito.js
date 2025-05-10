@@ -97,7 +97,6 @@ function EliminarDelCarrito(e){
     CargarProductosCarrito();
     localStorage.setItem("ProductosAgregadosCarrito", JSON.stringify(ProductosCarrito));
   
-    
 }
 
 BotonVaciar.addEventListener("click", VaciarCarrito);

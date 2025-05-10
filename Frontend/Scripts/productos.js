@@ -4,7 +4,33 @@ fetch("http://localhost:3000/api/productos")
   .then((res) => res.json())
   .then((data) => { 
     productos = data;
-    CargarProductos(productos);
+    console.log("Productos recibidos:", productos);
+    const categoriaURL = obtenerCategoriaDeURL();
+    if (categoriaURL) {
+      const ProductosFiltrados = productos.filter(producto => producto.categoria.id == categoriaURL);
+      CargarProductos(ProductosFiltrados);
+
+      const categoriaNombre = ProductosFiltrados[0]?.categoria.nombre || "Categoría";
+      TituloPrincipal.innerHTML = categoriaNombre;
+      
+      BotonCategorias.forEach((boton) => {
+        if (boton.id === categoriaURL) {
+          boton.classList.add("boton-active");
+        } else {
+          boton.classList.remove("boton-active");
+        }
+      });
+    } else {
+      CargarProductos(productos);
+      TituloPrincipal.innerHTML = "TODOS LOS PRODUCTOS";
+
+      const botonTodos = document.querySelector("#todos");
+      botonTodos.classList.add("boton-active");
+    }
+    
+    const urlActual = new URL(window.location.href);
+    window.history.pushState({}, "", urlActual.pathname);
+
   });
 
 const ContenedorProductos = document.querySelector("#Contenedor-productos");
@@ -163,4 +189,7 @@ function ActualizarBotonesAgregar(){
         });
       }
     
-  
+      function obtenerCategoriaDeURL() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get("categoria");
+      }
