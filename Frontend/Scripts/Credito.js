@@ -52,3 +52,34 @@ inputCVV.addEventListener('input', (e) => {
 
     e.target.value = valor;
 });
+
+
+document.getElementById("pages").addEventListener("submit", function(event) {
+  event.preventDefault();  // Previene que el formulario se envíe automáticamente
+
+  // Muestra la alerta de "procesando el pago"
+  Swal.fire({
+    title: "Procesando pago...",
+    text: "Estamos procesando tu pago, por favor espera.",
+    icon: "info",
+    showCancelButton: false,
+    showConfirmButton: false,
+    didOpen: () => {
+      Swal.showLoading(); // Muestra el icono de carga
+    }
+  });
+
+  setTimeout(() => {
+    Swal.fire({
+      title: "¡Pago realizado!",
+      text: "Disfruta de tus productos.",
+      icon: "success",
+      confirmButtonText: "Aceptar",
+      showConfirmButton: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "/Frontend/Pages/Store.html";
+      }
+    });
+  }, 10000); 
+});

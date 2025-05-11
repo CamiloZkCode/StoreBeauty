@@ -14,8 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&family=Syne:wght@400..800&display=swap"
       rel="stylesheet"
     />
-    <!-- AOS CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
 
 
     <link rel="stylesheet" href="/Frontend/Styles/Styles.css" />
@@ -24,7 +23,7 @@
   <body>
     <header>
       <nav class="nav-bar">
-        <div class="logo"><a href="/Frontend/Public/Index.html"> Mayra beauty Studio</a></div>
+        <div class="logo"><a href="/Frontend/Public/Index.html">Mayra beauty Studio</a></div>
         <div class="header-mobile">
           <button class="open-menu" id="open-menu">
             <i class="bi bi-list"></i>
@@ -72,7 +71,7 @@
         <h2>PRODUCTOS POPULARES</h2>
         <div class="container-products">
 
-          <div class="products" data-aos="fade-up" duration="3000">
+          <div class="products">
             <div class="Imagen">
             <img
               class="img-product"
@@ -88,7 +87,7 @@
               </div>
           </div>
 
-          <div class="products" data-aos="fade-up" duration="3000">
+          <div class="products" >
             <div class="Imagen">
             <img
               class="img-product"
@@ -104,7 +103,7 @@
               </div>
           </div>
 
-          <div class="products" data-aos="fade-up" duration="3000">
+          <div class="products">
             <div class="Imagen">
             <img
               class="img-product"
@@ -120,7 +119,7 @@
               </div>
           </div>
 
-          <div class="products" data-aos="fade-up" duration="3000">
+          <div class="products">
             <div class="Imagen">
             <img
               class="img-product"
@@ -135,6 +134,7 @@
                 </div>
               </div>
           </div>
+
         </div>
       </section>
 
@@ -189,12 +189,12 @@
         <div class="footer-products">
           <h6>Productos</h6>
           <ul>
-            <li>Facial</li>
-            <li>Skincare</li>
-            <li>Ojos</li>
-            <li>Labios</li>
-            <li>Brochas</li>
-            <li>Kits</li>
+            <li><a href="/Frontend/Pages/Store.html?categoria=facial">Facial</a></li>
+            <li><a href="/Frontend/Pages/Store.html?categoria=skincare">Skincare</a></li>
+            <li><a href="/Frontend/Pages/Store.html?categoria=ojos">Ojos</a></li>
+            <li><a href="/Frontend/Pages/Store.html?categoria=labios">labios</a></li>
+            <li><a href="/Frontend/Pages/Store.html?categoria=brochas">Brochas</a></li>
+            <li><a href="/Frontend/Pages/Store.html?categoria=kits">Kits</a></li>
           </ul>
         </div>
 
@@ -246,10 +246,6 @@
     <script src="/Frontend/Scripts/boton-menu.js"></script>
     <script src="/Frontend/Scripts/Navbar-Linea.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-     AOS.init({
-    once: false,// 🔄 Permite que se repita cada vez que el elemento entra al viewport
-  });
   </script>
   </body>
 </html>

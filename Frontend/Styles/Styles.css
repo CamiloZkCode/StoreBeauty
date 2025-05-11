@@ -25,6 +25,7 @@ body {
 @font-face {
   font-family: "Hello Paris";
   src: url(/Frontend/Assets/Fonts/HelloParisSerif-Medium.ttf) format("opentype");
+  font-display: swap;
 }
 
 /* Paleta de colores */
@@ -51,8 +52,7 @@ body {
   height: 60px;
   z-index: 1000;
   align-items: center;
-  padding: 10px 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.39);
   background-color: #f7f5f9;
   box-sizing: border-box;
 }
@@ -268,7 +268,8 @@ body {
 .container-products {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
+  align-items: stretch; 
+  gap: 1rem;
 }
 
 .products {
@@ -287,7 +288,22 @@ body {
   align-items: center;
   background-color: var(--blanco-textura);
   border-radius: 1rem;
+  overflow: hidden;
+  
 }
+
+.Imagen img{
+  transition: transform 0.7s ease-in-out; 
+  transform-origin: center; 
+  width: 100%; 
+  height: auto;
+  cursor: zoom-in;
+}
+
+.Imagen img:hover{
+  transform: scale(1.7); 
+}
+
 
 
 .container-info  {
@@ -312,19 +328,18 @@ body {
   gap: 0.25rem;
   text-align: center;
   font-weight: 500;
+  justify-content: center;
 }
 
 .name-product {
   font-family: "Syne", sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   word-break: break-word;
   margin: 0;
 }
 .price-product {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
-
 
 /*Seccion de Categorias*/
 .section-categories {
@@ -500,6 +515,11 @@ body {
   font-size: 1rem;
 }
 
+.footer a{
+  text-decoration: none;
+  color: var(--lila-oscuro);
+}
+
 .redes {
   display: flex;
   gap: 15px;
@@ -538,6 +558,7 @@ body {
     left: 0;
     transform: translateX(5%);
     z-index: 1;
+   
   
   }
   .header-mobile {
@@ -566,13 +587,19 @@ body {
     font-size: 1.5rem;
     color: var(--lila-principal);
     font-family: "Syne", sans-serif;
-   
   }
-
 
   .container-products {
-    grid-template-columns: repeat(2, 2fr);
+    grid-template-columns: repeat(2, 1fr);
+    
   }
+
+  .products{
+  flex-direction: column;
+  display: flex;
+   border-radius: 1rem;
+  border: 1px solid var(--lila-principal);
+}
 
   .section-services{
     padding: 20px 10px;
@@ -679,14 +706,16 @@ html, body {
 text-align: center;
 }
 
-.container-products{
+.container-products {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  padding: 1.5rem;
+  align-items: stretch; 
+  gap: 2.5rem;
+  max-width: 300px;
+  margin-right: 1rem;
 }
 
-/*Seccion de Categorias*/
+
 .section-categories {
   display: grid;
   grid-template-rows: auto;
@@ -694,7 +723,7 @@ text-align: center;
 }
 
 /*Seccion de Servicio*/
-.services-container{
+.services-container{  
   flex-direction: column;
   text-align: center;
   padding: 1rem;
@@ -747,6 +776,12 @@ text-align: center;
   min-width: 0;
   width: 100%;
 }
+
+.footer-products a{
+
+}
+
+
 .footer-services{
   grid-area: servicios;
   margin-bottom:0;
@@ -770,8 +805,4 @@ gap: 1rem;
 padding: 0;
 margin: 0 auto;
 }
-
 }
-
-
-

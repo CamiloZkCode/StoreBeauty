@@ -32,7 +32,7 @@ function CargarProductosCarrito() {
                   />
                   <div class="cart-name-product">
                     <small>PRODUCTO</small>
-                    <h4>${producto.titulo}</h4>
+                    <h5>${producto.titulo}</h5>
                   </div>
     
                   <div class="cart-quantity-product">
@@ -110,10 +110,9 @@ function ActualizarTotalCarrito() {
     const totalCalculado = ProductosCarrito.reduce((acc,producto) => acc + (producto.precio) * (producto.cantidad),0);
     ContenedorTotal.innerHTML = totalCalculado.toLocaleString('es-CO', { style: 'currency', currency: 'COP',  minimumFractionDigits: 0,
       maximumFractionDigits: 0});
+
+        localStorage.setItem("totalCompra", totalCalculado);
 }
-
-
-
 
 
 

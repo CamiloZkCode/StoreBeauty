@@ -24,7 +24,7 @@
 
   <body>
     <div class="contenedor">
-      <form action="">
+      <form action="" class="pages" id="pages" method="POST">
         <div class="filas">
           <div class="columnas">
             <h3 class="titulo">Datos de Envio</h3>
@@ -92,8 +92,8 @@
         <h3 class="titulo">Pago</h3>
 
             <div class="inputs-box">
-                <label for="Email">Nombre del Titular:</label>
-                <input type="email" name="email" id="email" placeholder="Ieremy Cabrera" required />
+                <label for="text">Nombre del Titular:</label>
+                <input type="text" name="text" id="text" placeholder="Ieremy Cabrera" required />
             </div>
 
             <div class="inputs-box">
@@ -120,12 +120,19 @@
             </div>
         </div>
 
+          <div class="flex">
+            <div class="inputs-box">
+                <label for="Total">Total pago:</labe>
+                <label id="total"></label>
+            </div>
+        </div>
         </div>
     </div>
-            <button class="btn-pagar" type="submit">Pagar</button>
+            <button type="submit" class="btn-pagar">Pagar</button>
       </form>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/Frontend/Scripts/Credito.js"></script>
+    <script src="/Frontend/Scripts/pasarela.js"></script>
   </body>
 </html>

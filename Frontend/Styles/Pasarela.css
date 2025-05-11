@@ -1,3 +1,7 @@
+body{
+    overflow-y: auto;
+}
+
 * {
     margin: 0;
     font-family: "Syne", sans-serif;
@@ -27,14 +31,14 @@
     align-items: center;
     min-height: 100vh;
     background: var(--lila-principal);
-    padding: 25px;
+    padding: 15px;
 }
 
 .contenedor form{
-    width: 700px;
-    padding: 40px;
+    width: 800px;
+    padding: 30px;
     background: var(--blanco-textura);
-    border-radius: 10px;
+    border-radius: 40px;
 }
 
 form .filas   {
@@ -106,6 +110,10 @@ form .btn-pagar{
     margin-top: 5px;
     cursor: pointer;
     transition: 0.5s;
+}
+
+#total{
+    font-size: 1.5rem;
 }
 
 form .btn-pagar:hover{

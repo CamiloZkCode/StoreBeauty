@@ -1,46 +1,50 @@
-let productos = []; // global
+let productos = []; 
 
-fetch("http://localhost:3000/api/productos")
-  .then((res) => res.json())
-  .then((data) => { 
-    productos = data;
-    console.log("Productos recibidos:", productos);
-    const categoriaURL = obtenerCategoriaDeURL();
-    if (categoriaURL) {
-      const ProductosFiltrados = productos.filter(producto => producto.categoria.id == categoriaURL);
-      CargarProductos(ProductosFiltrados);
+document.addEventListener("DOMContentLoaded", () => {
+  const ipServidor = window.location.hostname; // Detecta automáticamente la IP del servidor
+  fetch(`http://${ipServidor}:3000/api/productos`)
+    .then((res) => res.json())
+    .then((data) => { 
+      productos = data;
 
-      const categoriaNombre = ProductosFiltrados[0]?.categoria.nombre || "Categoría";
-      TituloPrincipal.innerHTML = categoriaNombre;
+
+      const categoriaURL = obtenerCategoriaDeURL();
+      if (categoriaURL) {
+        const ProductosFiltrados = productos.filter(producto => producto.categoria.id == categoriaURL);
+        CargarProductos(ProductosFiltrados);
+
+        const categoriaNombre = ProductosFiltrados[0]?.categoria.nombre || "Categoría";
+        TituloPrincipal.innerHTML = categoriaNombre;
+        
+        BotonCategorias.forEach((boton) => {
+          if (boton.id === categoriaURL) {
+            boton.classList.add("boton-active");
+          } else {
+            boton.classList.remove("boton-active");
+          }
+        });
+      } else {
+        CargarProductos(productos);
+        TituloPrincipal.innerHTML = "TODOS LOS PRODUCTOS";
+        
+        const botonTodos = document.querySelector("#todos");
+        botonTodos.classList.add("boton-active");
+      }
       
-      BotonCategorias.forEach((boton) => {
-        if (boton.id === categoriaURL) {
-          boton.classList.add("boton-active");
-        } else {
-          boton.classList.remove("boton-active");
-        }
-      });
-    } else {
-      CargarProductos(productos);
-      TituloPrincipal.innerHTML = "TODOS LOS PRODUCTOS";
+      const urlActual = new URL(window.location.href);
+      window.history.pushState({}, "", urlActual.pathname);
 
-      const botonTodos = document.querySelector("#todos");
-      botonTodos.classList.add("boton-active");
-    }
-    
-    const urlActual = new URL(window.location.href);
-    window.history.pushState({}, "", urlActual.pathname);
+    })
+    .catch((error) => console.error("Error al cargar productos:", error));
+});
 
-  });
+
 
 const ContenedorProductos = document.querySelector("#Contenedor-productos");
 const BotonCategorias = document.querySelectorAll(".boton-cat");
 const TituloPrincipal = document.querySelector("#titulo-principal");
 let botonesAgregar = document.querySelectorAll(".AggProducto");
 const numerito = document.querySelector("#numerito");
-
-
-
 
 function CargarProductos(ProductosElegidos) {
  
@@ -50,7 +54,6 @@ function CargarProductos(ProductosElegidos) {
     div.classList.add("producto");
     div.dataset.id = producto.id; 
     div.dataset.colorSeleccionado = ""; // Inicialmente no hay color seleccionado 
-
     let coloresHtml = "";
 
     if (producto.colores && producto.colores.length > 0) {
@@ -71,7 +74,7 @@ function CargarProductos(ProductosElegidos) {
                 <div class="details-product">
                     <h3 class="name-product">${producto.titulo}  ${producto.marca}</h3>
                         <div class="tonos">
-                            ${coloresHtml} <!-- Aquí se inyectan los círculos de colores -->
+                            ${coloresHtml}
                         </div>
                     <p class="price-product">${producto.precio.toLocaleString('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0,maximumFractionDigits: 0})}</p>
                 </div>
@@ -117,9 +120,7 @@ function ActualizarBotonesAgregar(){
         boton.addEventListener("click", agregarAlCarrito);
         });
     }
- 
 
-  
     let ProductosCarrito;
     const ProductosCarritoLS = localStorage.getItem("ProductosAgregadosCarrito");
         if (ProductosCarritoLS) {
@@ -139,7 +140,13 @@ function ActualizarBotonesAgregar(){
     const tieneColores = ProductoAgregado.colores && ProductoAgregado.colores.length > 0;
 
     if (tieneColores && (!nombreColorSeleccionado || nombreColorSeleccionado === "Sin tono")) {
-        alert("Por favor, selecciona un tono antes de agregar al carrito.");
+          Swal.fire({
+            icon: 'warning',
+            title: 'Selecciona un tono',
+            text: 'Debes elegir un tono antes de agregar el producto al carrito.',
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: '#8B5CF6'});
+            
         return;  // No agregamos al carrito si no se seleccionó un color
     }
    
@@ -150,7 +157,6 @@ function ActualizarBotonesAgregar(){
     });
 
     if (ProductoExistente >= 0) {
-        // Si ya existe el producto, aumentamos la cantidad
         ProductosCarrito[ProductoExistente].cantidad++;
     } else {
         // Si no existe, agregamos el producto con el color seleccionado
