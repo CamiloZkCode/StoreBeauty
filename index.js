@@ -2,7 +2,10 @@
 const express = require("express");
 const cors = require("cors");
 const productosRouter = require("./Backend/routes/productos.js");
-const pagosRouter = require("./Backend/routes/pagos.js");
+const crudRoutes = require("./Backend/routes/productoscrud.js");
+const login = require("./Backend/routes/login.js");
+
+
 
 const app = express();
 app.use(cors());
@@ -11,7 +14,9 @@ app.use(express.static("public"));
 
 // Usar rutas
 app.use("/api/productos", productosRouter);
-app.use("/api/pagos", pagosRouter);
+app.use("/api/productoscrud", crudRoutes)
+app.use("/api/login", login)
+
 
 // Error handling global (para capturar cualquier error)
 app.use((err, req, res, next) => {

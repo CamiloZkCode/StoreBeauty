@@ -1,8 +1,11 @@
+/* Dashboard.css */
+  @import url("/node_modules/bootstrap/dist/css/bootstrap.min.css");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 
 :root {
   --lila-principal: #b47edd;
@@ -12,7 +15,6 @@
   --negro-suave: #1e1e1e;
   --gris-claro: #eae6f0;
 }
-
 
 body {
   min-height: 100vh;
@@ -48,8 +50,8 @@ a {
 
 .aside {
   position: fixed;
-  width: 300px;
-  height: 100%;
+  width: 300px !important ;
+  height: 100% !important;
   background-color: var(--lila-principal);
   border-left: 10px solid var(--lila-principal);
   transition: 1s ease-in-out;
@@ -59,9 +61,8 @@ a {
   justify-content: space-between;
 }
 
-
 .aside.active {
-  width: 80px;
+  width: 80px !important ;
 
   .logo h1{
   display: none;
@@ -95,7 +96,6 @@ a {
   font-size: 1.5rem;
 }
 
-
 .navegador{
  margin-top: auto; /* Añadido - empuja el navegador hacia abajo */
  margin-bottom: auto; /* Añadido - espacio igual arriba y abajo */
@@ -103,8 +103,10 @@ a {
 }
 
 .menu {
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  flex-direction: column !important;
+  left: 0 !important;
+  padding-left: 1rem;
 }
 
 
@@ -114,16 +116,16 @@ width: 100%;
 list-style: none;
 }
 
-.menu li a{
-  gap: 3rem;
-  width: 100%;
+.menu li button{
+  gap: 1rem;
+  width: 100% 
 }
-
 
 .menu li i {
   font-size: 1.5rem;
 }
 
+.boton-salir,
 .boton-menu {
   font-family: "Syne", sans-serif;
   background: transparent;
@@ -133,10 +135,10 @@ list-style: none;
   display: flex;
   gap: 0.8rem;
   font-weight: 600;
-  padding: 0.9rem;
-  font-size: 1rem;
-  align-items: center;
-  width: 100%;
+  padding: 0.9rem ;
+  font-size: 1rem ;
+  align-items: center ;
+  width: 100% ;
 }
 
 .boton-active {
@@ -173,12 +175,14 @@ list-style: none;
 
 /*-----------------------MAIN-----------------------*/
 .main {
-  position: absolute;
+  position: relative;
   width: calc(100% - 300px);
   left: 300px;
   min-height: 100vh;
   background-color: var(--blanco-textura);
   transition: 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
 }
 
 .main.active{
@@ -188,7 +192,7 @@ list-style: none;
 
 .topbar {
   width: 100%;
-  height: 60px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -214,56 +218,255 @@ list-style: none;
   font-size: 2rem;
 }
 
-.buscador {
-  position: relative;
-  width: 400px;
-  height: 60px;
-  margin: 0 10px;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-}
-
-.buscador label {
-  position: relative;
-  width: 100%;
-  height: 40px;
-}
-
-.buscador label input {
-  width: 100%;
-  height: 40px;
-  border-radius: 40px;
-  padding: 5px 20px;
-  padding-left: 35px;
-  font-size: 1rem;
-  outline: none;
-  border: 1px solid var(--lila-principal);
-}
-
-.buscador label i {
-  position: relative;
-  top: -30px;
-  left: 10px;
-  font-size: 1.2rem;
-  color: var(--lila-oscuro);
-}
 
 .usuario {
   position: relative;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagen-usuario{
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  overflow: hidden;
-  cursor: pointer;
   border: 1px solid var(--lila-principal);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
-.usuario img {
+.imagen-usuario img {
   position: relative;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  
+}
+
+.online{
+  font-size: 0.8rem;
+}
+
+/*-------Tabla Inventarios--------------*/
+
+.contenedor-productos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 15px;
+  text-align: center;
+}
+
+
+/*-----------------Formulario Productos--------------------*/
+
+.modal-content {
+  background-color: #fff;
+  padding: 1rem;
+  max-width: 1000px;
+  border-radius: 0.5rem;
+  width: 900px;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 1rem;
+}
+
+.modal-title {
+  font-family: "Syne", sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  color: var(--lila-principal);
+}
+
+.modal-footer {
+  border-top: none;
+  padding-top: 1rem;
+}
+
+
+#btnCrear{
+  background-color: var(--lila-principal);
+  border: 1px solid var(--lila-principal);
+}
+
+
+.form-productos,
+.form-modificar {
+  background-color: #fff;
+  display: block;
+  padding: 1rem;  
+  max-width: 1000px;
+  width: 100%; 
+  border-radius: 0.5rem;
+}
+
+.form-titlep {
+  font-family: "Syne", sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--lila-principal);
+  margin-bottom: 1rem;
+}
+
+.input-containerp{
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+}
+
+.input-containerp label{
+  font-family:"Syne", sans-serif;; ;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.input-containerp input, select{
+  outline: none;
+  border: 1px solid #e5e7eb;
+  margin: 8px 0;
+}
+
+.input-containerp select {
+  background-color: #fff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  height: 40px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  
+}
+
+.input-containerp input {
+  background-color: #fff;
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: 150px;
+  height: 40px;
+  border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+
+ 
+}
+
+.input-containerp #idProducto{
+  width: 80px;
+
+}
+
+.input-containerp #referencia{
+  width: 300px;
+}
+
+.input-containerp #imagen{
+   width: 800px;
+}
+
+.input-containerp #categoria, 
+#tipo, 
+#marca{
+  width: 160px;
+}
+
+.input-containerp #idvariante, 
+#colorvariante, 
+#nombrecolor, 
+#stock{
+  width: 100px;
+}
+
+
+.input-containerp #editarcategoria, 
+#editartipo, 
+#editarmarca{
+  width: 160px;
+}
+
+.input-containerp #editarimagen{
+  width: 400px;
+}
+
+
+ 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.cancelarmodificar,
+.cancelarproducto,
+.modificarproducto,
+.guardarproducto,
+.guardarvariante{
+  display: block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-family:"Syne", sans-serif;; ;
+  font-size: 0.875rem;
+  font-weight: 500;
+  width: 100px;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.5s ease;
+  margin-bottom: 1rem;
+}
+
+.guardarproducto,
+.cancelarmodificar,
+.modificarproducto,
+.cancelarproducto{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--lila-principal);
+  color: var(--blanco-textura);
+  border: 1px solid var(--blanco-textura);
+}
+
+.editarv-btn,
+.editar-btn{
+  border: none;
+  background-color: transparent;
+  color: green;
+  font-size: 1rem;
+  margin: 3px;
+}
+
+.vervariantes-btn{
+  border: none;
+  background-color: transparent;
+  color: rgb(110, 110, 224);
+  font-size: 1rem;
+  margin: 3px;
+}
+.eliminarv-btn,
+.eliminar-btn{
+  border: none;
+  background-color: transparent;
+  color: rgb(230, 105, 105);
+  font-size: 1rem;
+  margin: 3px;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none; /* opcional, por si usa sombra */
 }

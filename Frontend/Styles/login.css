@@ -1,0 +1,205 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+/* Contenedor principal flexible */
+body {
+  display: flex;
+  flex-direction: column;
+  background-image: url(/Frontend/Assets/Images/SecBienvenida.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Hace que el main ocupe el espacio restante */
+.main {
+  flex-grow: 1;
+}
+
+
+@font-face {
+  font-family: "Hello Paris";
+  src: url(/Frontend/Assets/Fonts/HelloParisSerif-Medium.ttf) format("opentype");
+}
+
+/* Paleta de colores */
+:root {
+  --lila-principal: #b47edd; 
+  --lila-oscuro: #7b0aa1; 
+  --lila-claro: #d9b3ff; 
+  --blanco-textura: #f7f5f9; 
+  --negro-suave: #1e1e1e;
+  --gris-claro: #eae6f0; 
+}
+
+/* Navbar */
+.nav-bar {
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content:flex-start;
+  margin-top: 15px;
+  border-radius: 15px;
+  position: fixed;
+  top: 0;
+  width: 90%;
+  height: 60px;
+  z-index: 1000;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f7f5f9;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-family: "Hello Paris";
+  color: var(--lila-oscuro);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.logo a{
+  text-decoration: none;
+  
+}
+
+.logo a:hover{
+  color: var(--lila-principal);
+}
+
+.header-mobile {
+  display: none;
+}
+
+.close-menu {
+  display: none;
+}
+
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 10px;
+  white-space: nowrap;
+}
+
+.nav-links a {
+  font-family: "Syne", sans-serif;
+  text-decoration: none;
+  color: var(--lila-oscuro);
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+
+.nav-links a:hover {
+  color: var(--lila-claro);
+}
+
+.nav-links a.active {
+  color: var(--lila-oscuro);
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px;
+  background-color: var(--lila-oscuro);
+  border-radius: 1px;
+}
+
+
+
+/* From Uiverse.io by nathann09 */ 
+.form {
+  background-color: #fff;
+  display: block;
+  padding: 1rem;
+  max-width: 400px;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.form-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--lila-principal);
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-container input, .form button {
+  outline: none;
+  border: 1px solid #e5e7eb;
+  margin: 8px 0;
+}
+
+.input-container input {
+  background-color: #fff;
+  padding: 1rem;
+  padding-right: 3rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: 300px;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.submit {
+  display: block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  background-color: var(--lila-principal);
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.signup-link {
+  color: #6B7280;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: center;
+}
+
+.signup-link a {
+  text-decoration: underline;
+}
+
+.container-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}

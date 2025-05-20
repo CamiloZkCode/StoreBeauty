@@ -1,81 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="stylesheet" href="/Frontend/Styles/Dashboard.css">
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-    <link
-      rel="shortcut icon"
-      href="/Frontend/Public/favicon.png"
-      type="image/x-icon"
-    />
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Frontend/Styles/Dashboard.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
+    <link rel="shortcut icon" href="/Frontend/Public/favicon.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&family=Syne:wght@400..800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&family=Syne:wght@400..800&display=swap" rel="stylesheet" />
 
     <title>Dashboard Mayra Beauty Studio</title>
-</head>
-<body>
-
-
+  </head>
+  <body>
     <div class="wrapper">
-        <div class="aside">
-            <div href="" class="logo">
-                 <i class="bi bi-shop"></i>
-                 <a href="/Frontend/Public/Index.html">MayraBS</a>
-            </div>
-             <nav class="navegador">
-                <ul class="menu">
-                    <li>
-                        
-                    </li>
-                    <li>
-                        <a href="" class="boton-menu  boton-active"><i class="bi bi-people"></i>Login</a>
-                    </li>
-                    <li>
-                        <a href="" class="boton-menu"><i class="bi bi-bag-plus"></i>Productos</a>
-                    </li>
-                    <li>
-                        <a href="" class="boton-menu"><i class="bi bi-clipboard2-check"></i>Inventario</a>
-                    </li>
-                    <li>
-                        <a href="" class="boton-menu"><i class="bi bi-clipboard2-check"></i>Facturas</a>
-                    </li>
-                    <li>
-                        <a href="" class="boton-menu "><i class="bi bi-box-arrow-right"></i>Salir</a>
-                    </li>
-                </ul>
-             </nav>
+      <div class="aside">
+        <div href="" class="logo">
+          <i class="bi bi-shop"></i>
+          <a href="/Frontend/Public/Index.html">MayraBS</a>
         </div>
+        <nav class="navegador">
+          <ul class="menu">
+            <li> <button class="boton-menu" data-section="Crear-Productos"><i class="bi bi-bag-plus"></i>Productos</button> </li>
+           <!-- <li> <button class="boton-menu" data-section="Ver-Facturas"> <i class="bi bi-clipboard2-check"></i>Facturas </button></li>-->
+            <li> <button class="boton-salir" id="outlogin"> <i class="bi bi-box-arrow-right"></i>Salir </button> </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
 
-        <div class="main">
-            <div class="topbar">
-                <div class="toggle">
-                    <button class="listades"> <i class="bi bi-list"></i> </button>
-                </div>
-
-                <div class="buscador">
-                    <label for="buscar">
-                        <input type="text" placeholder="busca aqui">
-                        <i class="bi bi-search-heart"></i>
-                    </label>
-                </div>
-
-                <div class="usuario">
-                   <img src="/Frontend/Public/Img/user/JoanUser.png" alt="">
-                </div>
-            </div>
+    <div class="main">
+      <div class="topbar">
+        <div class="toggle">
+          <button class="listades"><i class="bi bi-list"></i></button>
         </div>
-   
-<script src="/Frontend/Scripts/dashboard.js"></script>
-</body>
+        <div class="usuario">
+          <div class="imagen-usuario">
+             <img src="/Frontend/Public/Img/user/JoanUser.png" alt="" />
+          </div>
+          <div class="online">
+            <span id="online"></span>
+          </div> 
+        </div> 
+      </div>
+
+<section class="seccion" data-section="Crear-Productos" id="mainDashboard"> 
+ <div class="contenedor-productos">
+      <button id="btnCrear" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalArticulo" >Crear Producto</button>
+        <table id="tablaproductos" class="table table-striped table-bordered mt-2">
+          <thead>
+            <tr class="texto centro">
+              <th>ID</th>
+              <th>Tipo</th>
+              <th>Referencia</th>
+              <th>Marca</th>
+              <th>Precio</th>
+              <th>Descuento</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+</section>
+
+
+<section class="seccion" data-section="Ver-Facturas" >
+
+<h1>FACTURAS</h1>
+
+</section>
+
+
+    <div itemid="modalArticulo" class="modal fade" id="modalArticulo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header ">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Nuevo Producto</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+    <div class="modal-body">
+      <form class="form-productos" method="POST">
+            <div class="input-containerp">
+              <label for="idProducto">ID Producto:</label>
+              <input type="number" id="idProducto" name="idProducto"  required />
+              <label for="categoria">Categoría:</label>
+              <select id="categoria" name="categoria" required>
+                <option value="1">FACIAL</option>
+                <option value="2">SKINCARE</option>
+                <option value="3">OJOS</option>
+                <option value="4">LABIOS</option>
+                <option value="5">BROCHAS</option>
+                <option value="6">KITS</option>
+              </select>
+
+              <label for="tipo">Tipo:</label>
+              <select id="tipo" name="tipo" required>
+              </select>
+              
+
+              <label for="marca">Marca:</label>
+              <select id="marca" name="marca" required>
+                <option value="1">DOLCEBELLA</option>
+                <option value="2">ATENEA</option>
+                <option value="3">MONTOC</option>
+                <option value="4">RAQUEL</option>
+              </select>
+            </div>
+
+            <div class="input-containerp">
+              <label for="referencia">Referencia:</label>
+              <input type="text" id="referencia" name="referencia" required />
+
+              <label for="precio">Precio:</label>
+              <input type="number" step="0.01"id="precio"name="precio" required/>
+
+              <label for="descuento">Descuento(%):</label>
+              <input type="number" step="0.01" id="descuento" name="descuento" value="0"/>
+            </div>
+
+            <div class="input-containerp">
+              <label for="imagen">Nombre Archivo:</label>
+              <input type="text" id="imagen" name="imagen" required />
+            </div>
+
+
+            <p class="form-titlep">Tonos</p>
+            <div class="input-containerp">
+              <div class="variantes">
+                <div class="variante">
+                  <label for="idvariante" >ID Variante:</label>
+                  <input id="idvariante" type="number" name="idVariante" required />
+
+                  <label for="colorvariante" >Color (Hex):</label>
+                  <input id="colorvariante" type="text" name="colorHex" placeholder="#FFFFFF" />
+                  <label for="nombrecolor" >Nombre Color:</label>
+                  <input id="nombrecolor" type="text" name="colorNombre" />
+                  <label for="stock" >Stock:</label> 
+                  <input id="stock" type="number" name="stock" value="0" required />
+                </div>
+              </div>
+            </div>
+          
+      </div>
+      <div class="modal-footer">
+       <!-- <button type="button" class="cancelarproducto" data-bs-dismiss="modal">Cancelar</button>-->
+         <button type="submit" class="guardarproducto"> Crear</button>
+      </div>
+       </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!--MODAL PARA MODIFICAR UN PRODUCTO-->
+
+ <div itemid="EditarProducto" class="modal fade" id="EditarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header ">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar Producto</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+    <div class="modal-body">
+      <form class="form-modificar" method="POST" data-id="">
+            <div class="input-containerp">
+              <label for="editarcategoria">Categoría:</label>
+              <select id="editarcategoria" name="categoria" required>
+                <option value="1">FACIAL</option>
+                <option value="2">SKINCARE</option>
+                <option value="3">OJOS</option>
+                <option value="4">LABIOS</option>
+                <option value="5">BROCHAS</option>
+                <option value="6">KITS</option>
+              </select>
+
+              <label for="editartipo">Tipo:</label>
+              <select id="editartipo" name="tipo" required>
+              </select>
+              
+
+              <label for="editarmarca">Marca:</label>
+              <select id="editarmarca" name="marca" required>
+                <option value="1">DOLCEBELLA</option>
+                <option value="2">ATENEA</option>
+                <option value="3">MONTOC</option>
+                <option value="4">RAQUEL</option>
+              </select>
+            </div>
+
+            <div class="input-containerp">
+              <label for="editarreferencia">Referencia:</label>
+              <input type="text" id="editarreferencia" name="referencia" required />
+
+              <label for="editarprecio">Precio:</label>
+              <input type="number" step="0.01"id="editarprecio"name="precio" required/>
+
+              <label for="editardescuento">Descuento(%):</label>
+              <input type="number" step="0.01" id="editardescuento" name="descuento" value="0"/>
+            </div>
+
+            <div class="input-containerp">
+              <label for="editarimagen">Nombre Archivo:</label>
+              <input type="text" id="editarimagen" name="imagen" required />
+            </div>
+      </div>
+      <div class="modal-footer">
+       <!-- <button type="button" class="cancelarmodificar" data-bs-dismiss="modal">Cancelar</button>-->
+         <button type="submit" class="modificarproducto" id="modificarproducto">Modificar</button>
+      </div>
+       </form>
+    </div>
+  </div>
+</div>
+
+
+
+    <script src="/Frontend/Scripts/formularioproductos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+    <script src="/Frontend/Scripts/dashboard.js"></script>
+  </body>
 </html>
